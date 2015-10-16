@@ -1,8 +1,5 @@
 package entities;
 
-
-
 public enum State {
-	PAID, BOOKED, FICTIF
+	PAID, BOOKED
 }
-

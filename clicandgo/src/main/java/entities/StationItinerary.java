@@ -8,33 +8,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Entity implementation class for Entity: StationLine
+ * Entity implementation class for Entity: StationItinerary
  *
  */
 @Entity
-public class StationLine implements Serializable {
+public class StationItinerary implements Serializable {
 
-	private StationLineId StationLineId;
+	private StationItineraryId StationItineraryId;
 	private Integer order;
 	private Double duration;
 	private static final long serialVersionUID = 1L;
 
 	private Station station;
-	private Line line;
+	private Itinerary itinerary;
 
-	public StationLine() {
+	public StationItinerary() {
 		super();
 	}
 
-	public StationLine(entities.StationLineId stationLineId, Integer order,
-			Double duration, Station station, Line line) {
+	public StationItinerary(entities.StationItineraryId stationItineraryId, Integer order,
+			Double duration, Station station, Itinerary itinerary) {
 		super();
-		this.StationLineId = new StationLineId(line.getLineID(),
+		this.StationItineraryId = new StationItineraryId(itinerary.getItineraryId(),
 				station.getStationId());
 		this.order = order;
 		this.duration = duration;
 		this.station = station;
-		this.line = line;
+		this.itinerary = itinerary;
 	}
 
 	public Integer getOrder() {
@@ -54,12 +54,12 @@ public class StationLine implements Serializable {
 	}
 
 	@EmbeddedId
-	public StationLineId getStationLineId() {
-		return StationLineId;
+	public StationItineraryId getStationItineraryId() {
+		return StationItineraryId;
 	}
 
-	public void setStationLineId(StationLineId stationLineId) {
-		StationLineId = stationLineId;
+	public void setStationItineraryId(StationItineraryId stationItineraryId) {
+		StationItineraryId = stationItineraryId;
 	}
 
 	@ManyToOne
@@ -73,13 +73,13 @@ public class StationLine implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "lineId", referencedColumnName = "lineId", insertable = false, updatable = false)
-	public Line getLine() {
-		return line;
+	@JoinColumn(name = "itineraryId", referencedColumnName = "itineraryId", insertable = false, updatable = false)
+	public Itinerary getItinerary() {
+		return itinerary;
 	}
 
-	public void setLine(Line line) {
-		this.line = line;
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
 	}
 
 }

@@ -9,31 +9,32 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
- * Entity implementation class for Entity: Line
+ * Entity implementation class for Entity: Itinerary
  *
  */
 @Entity
-public class Line implements Serializable {
+public class Itinerary implements Serializable {
 
-	private Integer lineID;
+	private Integer itineraryId;
 	private String name;
 	private Integer nbStations;
 	private static final long serialVersionUID = 1L;
 
 	private List<MeanOfTransport> meansOftransport;
 	private List<Station> stations;
+	private List<Ticket> tickets;
 
-	public Line() {
+	public Itinerary() {
 		super();
 	}
 
 	@Id
-	public Integer getLineID() {
-		return this.lineID;
+	public Integer getItineraryId() {
+		return this.itineraryId;
 	}
 
-	public void setLineID(Integer lineID) {
-		this.lineID = lineID;
+	public void setItineraryId(Integer itineraryId) {
+		this.itineraryId = itineraryId;
 	}
 
 	public String getName() {
@@ -52,7 +53,7 @@ public class Line implements Serializable {
 		this.nbStations = nbStations;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy="itinerary")
 	public List<MeanOfTransport> getMeansOftransport() {
 		return meansOftransport;
 	}
@@ -68,6 +69,15 @@ public class Line implements Serializable {
 
 	public void setStations(List<Station> stations) {
 		this.stations = stations;
+	}
+
+	@OneToMany(mappedBy="itinerary")
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 
 }

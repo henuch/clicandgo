@@ -19,7 +19,7 @@ public class Station implements Serializable {
 	private String name;
 	private static final long serialVersionUID = 1L;
 
-	private List<Line> lines;
+	private List<Itinerary> itineraries;
 	private List<Place> places;
 
 	public Station() {
@@ -44,15 +44,15 @@ public class Station implements Serializable {
 	}
 
 	@ManyToMany(mappedBy = "stations")
-	public List<Line> getLines() {
-		return lines;
+	public List<Itinerary> getItineraries() {
+		return itineraries;
 	}
 
-	public void setLines(List<Line> lines) {
-		this.lines = lines;
+	public void setItineraries(List<Itinerary> itineraries) {
+		this.itineraries = itineraries;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy = "station")
 	public List<Place> getPlaces() {
 		return places;
 	}

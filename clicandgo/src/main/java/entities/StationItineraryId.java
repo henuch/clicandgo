@@ -5,22 +5,22 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class StationLineId implements Serializable {
+public class StationItineraryId implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer lineId;
+	private Integer itineraryId;
 	private Integer stationId;
 
-	public StationLineId() {
+	public StationItineraryId() {
 
 	}
 
-	public StationLineId(Integer lineId, Integer stationId) {
+	public StationItineraryId(Integer itineraryId, Integer stationId) {
 		super();
-		this.lineId = lineId;
+		this.itineraryId = itineraryId;
 		this.stationId = stationId;
 	}
 
@@ -28,7 +28,7 @@ public class StationLineId implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((lineId == null) ? 0 : lineId.hashCode());
+		result = prime * result + ((itineraryId == null) ? 0 : itineraryId.hashCode());
 		result = prime * result
 				+ ((stationId == null) ? 0 : stationId.hashCode());
 		return result;
@@ -42,11 +42,11 @@ public class StationLineId implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StationLineId other = (StationLineId) obj;
-		if (lineId == null) {
-			if (other.lineId != null)
+		StationItineraryId other = (StationItineraryId) obj;
+		if (itineraryId == null) {
+			if (other.itineraryId != null)
 				return false;
-		} else if (!lineId.equals(other.lineId))
+		} else if (!itineraryId.equals(other.itineraryId))
 			return false;
 		if (stationId == null) {
 			if (other.stationId != null)
@@ -56,12 +56,12 @@ public class StationLineId implements Serializable {
 		return true;
 	}
 
-	public Integer getLineId() {
-		return lineId;
+	public Integer getItineraryId() {
+		return itineraryId;
 	}
 
-	public void setLineId(Integer lineId) {
-		this.lineId = lineId;
+	public void setItineraryId(Integer itineraryId) {
+		this.itineraryId = itineraryId;
 	}
 
 	public Integer getStationId() {

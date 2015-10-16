@@ -19,7 +19,7 @@ public class MeanOfTransport implements Serializable {
 	private Integer capacity;
 	private static final long serialVersionUID = 1L;
 	
-	private Line line;
+	private Itinerary itinerary;
 
 	public MeanOfTransport() {
 		super();
@@ -47,11 +47,11 @@ public class MeanOfTransport implements Serializable {
 		this.capacity = capacity;
 	}
 	@ManyToOne
-	public Line getLine() {
-		return line;
+	public Itinerary getItinerary() {
+		return itinerary;
 	}
-	public void setLine(Line line) {
-		this.line = line;
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
 	}
    
 }
