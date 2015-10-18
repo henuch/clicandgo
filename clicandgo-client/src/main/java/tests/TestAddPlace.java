@@ -16,7 +16,7 @@ public class TestAddPlace {
 		proxy = (PlaceServicesRemote) context
 				.lookup("/clicandgo-ejb/PlaceServices!services.interfaces.PlaceServicesRemote");
 
-		testAddPlace();
+		testUpdatePlace();
 		
 	}
 
@@ -29,6 +29,22 @@ public class TestAddPlace {
 		place.setStation(null);
 		proxy.addPlace(place);
 		
+	}
+	public static void testUpdatePlace() {
+		Place placeFound = proxy.findPlaceByPlaceId(1);
+		placeFound.setName("new");
+		proxy.updatePlace(placeFound);
+
+	}
+
+	public static void testDeletePlace() {
+		proxy.deletePlaceByPlaceId(1);
+
+	}
+
+	public static void testFindPlaceByPlaceId() {
+		System.out.println(proxy.findPlaceByPlaceId(1).getName());
+
 	}
 
 	
