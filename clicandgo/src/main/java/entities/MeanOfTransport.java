@@ -53,5 +53,14 @@ public class MeanOfTransport implements Serializable {
 	public void setItinerary(Itinerary itinerary) {
 		this.itinerary = itinerary;
 	}
+	@Override
+	public String toString() {
+		return "MeanOfTransport [registrationNumber=" + registrationNumber
+				+ ", nbOfWagons=" + nbOfWagons + ", capacity=" + capacity
+				+ ", itinerary=" + itinerary + "]";
+	}
+	
+	
+	
    
 }
