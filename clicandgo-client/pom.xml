@@ -10,12 +10,19 @@
 	</properties>
 
 	<dependencies>
-		
+	
+		<dependency>
+			<groupId>tn.edu.esprit.sigma.itclic</groupId>
+			<artifactId>clicandgo-ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.10.Final</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
