@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -66,8 +67,7 @@ public class StationItinerary implements Serializable {
 	}
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-	// @JoinColumn(name = "idStation", referencedColumnName = "stationId",
-	// insertable = false, updatable = false)
+	@JoinColumn(name = "stationId", referencedColumnName = "stationId",insertable = false, updatable = false)
 	public Station getStation() {
 		return station;
 	}
@@ -77,8 +77,7 @@ public class StationItinerary implements Serializable {
 	}
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-	// @JoinColumn(name = "idItinerary", referencedColumnName = "itineraryId",
-	// insertable = false, updatable = false)
+	@JoinColumn(name = "itineraryId", referencedColumnName = "itineraryId", insertable = false, updatable = false)
 	public Itinerary getItinerary() {
 		return itinerary;
 	}
