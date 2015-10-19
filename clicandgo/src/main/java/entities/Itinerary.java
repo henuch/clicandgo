@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -19,18 +18,12 @@ public class Itinerary implements Serializable {
 	private String name;
 	private Integer nbStations;
 	private static final long serialVersionUID = 1L;
-
-	private List<MeanOfTransport> meansOftransport;
-	private List<Station> stations;
-	private List<Ticket> tickets;
-
-	public Itinerary() {
-		super();
-	}
+	
+	private List<StationItinerary> stationItineraries;
 
 	@Id
 	public Integer getItineraryId() {
-		return this.itineraryId;
+		return itineraryId;
 	}
 
 	public void setItineraryId(Integer itineraryId) {
@@ -38,7 +31,7 @@ public class Itinerary implements Serializable {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -46,38 +39,81 @@ public class Itinerary implements Serializable {
 	}
 
 	public Integer getNbStations() {
-		return this.nbStations;
+		return nbStations;
 	}
 
 	public void setNbStations(Integer nbStations) {
 		this.nbStations = nbStations;
 	}
 
-	@OneToMany(mappedBy="itinerary")
-	public List<MeanOfTransport> getMeansOftransport() {
-		return meansOftransport;
+	@OneToMany(mappedBy = "itinerary")
+	public List<StationItinerary> getStationItineraries() {
+		return stationItineraries;
 	}
 
-	public void setMeansOftransport(List<MeanOfTransport> meansOftransport) {
-		this.meansOftransport = meansOftransport;
+	public void setStationItineraries(List<StationItinerary> stationItineraries) {
+		this.stationItineraries = stationItineraries;
 	}
 
-	@ManyToMany
-	public List<Station> getStations() {
-		return stations;
-	}
-
-	public void setStations(List<Station> stations) {
-		this.stations = stations;
-	}
-
-	@OneToMany(mappedBy="itinerary")
-	public List<Ticket> getTickets() {
-		return tickets;
-	}
-
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+	// private List<MeanOfTransport> meansOftransport;
+	// private List<StationItinerary> stationItineraries;
+	// private List<Ticket> tickets;
+	//
+	// public Itinerary() {
+	// super();
+	// }
+	//
+	// @Id
+	// public Integer getItineraryId() {
+	// return this.itineraryId;
+	// }
+	//
+	// public void setItineraryId(Integer itineraryId) {
+	// this.itineraryId = itineraryId;
+	// }
+	//
+	// public String getName() {
+	// return this.name;
+	// }
+	//
+	// public void setName(String name) {
+	// this.name = name;
+	// }
+	//
+	// public Integer getNbStations() {
+	// return this.nbStations;
+	// }
+	//
+	// public void setNbStations(Integer nbStations) {
+	// this.nbStations = nbStations;
+	// }
+	//
+	// @OneToMany(mappedBy = "itinerary")
+	// public List<MeanOfTransport> getMeansOftransport() {
+	// return meansOftransport;
+	// }
+	//
+	// public void setMeansOftransport(List<MeanOfTransport> meansOftransport) {
+	// this.meansOftransport = meansOftransport;
+	// }
+	//
+	// @OneToMany(mappedBy = "itinerary")
+	// public List<StationItinerary> getStationItineraries() {
+	// return stationItineraries;
+	// }
+	//
+	// public void setStationItineraries(List<StationItinerary>
+	// stationItineraries) {
+	// this.stationItineraries = stationItineraries;
+	// }
+	//
+	// @OneToMany(mappedBy = "itinerary")
+	// public List<Ticket> getTickets() {
+	// return tickets;
+	// }
+	//
+	// public void setTickets(List<Ticket> tickets) {
+	// this.tickets = tickets;
+	// }
 
 }

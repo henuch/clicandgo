@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -19,7 +21,7 @@ public class User implements Serializable {
 	private String surname;
 	private String email;
 	private String password;
-	private String type;
+
 	private static final long serialVersionUID = 1L;
 
 	private List<Ticket> tickets;
@@ -28,7 +30,18 @@ public class User implements Serializable {
 		super();
 	}
 
+	public User(String name, String surname, String email, String password,
+			List<Ticket> tickets) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.tickets = tickets;
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getUserId() {
 		return this.userId;
 	}
@@ -69,15 +82,7 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	@OneToMany
+	@OneToMany(mappedBy="user")
 	public List<Ticket> getTickets() {
 		return tickets;
 	}

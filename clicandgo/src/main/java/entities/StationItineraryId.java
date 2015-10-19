@@ -11,26 +11,27 @@ public class StationItineraryId implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer itineraryId;
-	private Integer stationId;
+	private Integer idItinerary;
+	private Integer idStation;
 
 	public StationItineraryId() {
 
 	}
 
-	public StationItineraryId(Integer itineraryId, Integer stationId) {
+	public StationItineraryId(Integer idItinerary, Integer idStation) {
 		super();
-		this.itineraryId = itineraryId;
-		this.stationId = stationId;
+		this.idItinerary = idItinerary;
+		this.idStation = idStation;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((itineraryId == null) ? 0 : itineraryId.hashCode());
 		result = prime * result
-				+ ((stationId == null) ? 0 : stationId.hashCode());
+				+ ((idItinerary == null) ? 0 : idItinerary.hashCode());
+		result = prime * result
+				+ ((idStation == null) ? 0 : idStation.hashCode());
 		return result;
 	}
 
@@ -43,33 +44,89 @@ public class StationItineraryId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		StationItineraryId other = (StationItineraryId) obj;
-		if (itineraryId == null) {
-			if (other.itineraryId != null)
+		if (idItinerary == null) {
+			if (other.idItinerary != null)
 				return false;
-		} else if (!itineraryId.equals(other.itineraryId))
+		} else if (!idItinerary.equals(other.idItinerary))
 			return false;
-		if (stationId == null) {
-			if (other.stationId != null)
+		if (idStation == null) {
+			if (other.idStation != null)
 				return false;
-		} else if (!stationId.equals(other.stationId))
+		} else if (!idStation.equals(other.idStation))
 			return false;
 		return true;
 	}
 
 	public Integer getItineraryId() {
-		return itineraryId;
+		return idItinerary;
 	}
 
-	public void setItineraryId(Integer itineraryId) {
-		this.itineraryId = itineraryId;
+	public void setItineraryId(Integer idItinerary) {
+		this.idItinerary = idItinerary;
 	}
 
 	public Integer getStationId() {
-		return stationId;
+		return idStation;
 	}
 
-	public void setStationId(Integer stationId) {
-		this.stationId = stationId;
+	public void setStationId(Integer idStation) {
+		this.idStation = idStation;
 	}
+
+	//
+	// public StationItineraryId(Integer idItinerary, Integer idStation) {
+	// super();
+	// this.idItinerary = idItinerary;
+	// this.idStation = idStation;
+	// }
+	//
+	// @Override
+	// public int hashCode() {
+	// final int prime = 31;
+	// int result = 1;
+	// result = prime * result + ((idItinerary == null) ? 0 :
+	// idItinerary.hashCode());
+	// result = prime * result
+	// + ((idStation == null) ? 0 : idStation.hashCode());
+	// return result;
+	// }
+	//
+	// @Override
+	// public boolean equals(Object obj) {
+	// if (this == obj)
+	// return true;
+	// if (obj == null)
+	// return false;
+	// if (getClass() != obj.getClass())
+	// return false;
+	// StationItineraryId other = (StationItineraryId) obj;
+	// if (idItinerary == null) {
+	// if (other.idItinerary != null)
+	// return false;
+	// } else if (!idItinerary.equals(other.idItinerary))
+	// return false;
+	// if (idStation == null) {
+	// if (other.idStation != null)
+	// return false;
+	// } else if (!idStation.equals(other.idStation))
+	// return false;
+	// return true;
+	// }
+	//
+	// public Integer getItineraryId() {
+	// return idItinerary;
+	// }
+	//
+	// public void setItineraryId(Integer idItinerary) {
+	// this.idItinerary = idItinerary;
+	// }
+	//
+	// public Integer getStationId() {
+	// return idStation;
+	// }
+	//
+	// public void setStationId(Integer idStation) {
+	// this.idStation = idStation;
+	// }
 
 }
