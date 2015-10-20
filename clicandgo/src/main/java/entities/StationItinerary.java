@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "line")
+@Table(name = "station_itinerary")
 public class StationItinerary implements Serializable {
 
 	private StationItineraryId StationItineraryId;
