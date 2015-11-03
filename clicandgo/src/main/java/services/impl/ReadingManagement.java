@@ -37,6 +37,7 @@ public class ReadingManagement implements ReadingManagementRemote, ReadingManage
 		return b;
 	}
 
+	//je recupere l'utilisateur connecté et son trajet actuel
 	@Override
 	public List<Ebook> suggestEbooks(StationItinerary stationItinerary,
 			Traveler traveler) {
