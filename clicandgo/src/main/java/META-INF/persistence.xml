@@ -3,6 +3,7 @@
 	<persistence-unit name="clicandgo">
 	<jta-data-source>java:jboss/datasources/clicandgoDS</jta-data-source>
 	<class>entities.ContentManager</class>
+	<class>entities.Ebook</class>
 	<class>entities.Itinerary</class>
 	<class>entities.MeanOfTransport</class>
 	<class>entities.Place</class>
