@@ -11,7 +11,7 @@ public class testSuggestEbook {
 		traveler.setName("Houcem");
 		
 		StationItinerary stationItinerary = new StationItinerary();
-		stationItinerary.setDuration(33D);
+		stationItinerary.setDuration(33);
 		
 		System.out.println(ReadingManagementDelegate.suggestEbooks(stationItinerary, traveler));
 	}
