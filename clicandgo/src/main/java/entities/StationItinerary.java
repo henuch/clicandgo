@@ -19,7 +19,8 @@ public class StationItinerary implements Serializable {
 
 	private StationItineraryId StationItineraryId;
 	private Integer position;
-	private Double duration;
+	private Integer duration;
+	private Integer distance;
 	private static final long serialVersionUID = 1L;
 
 	private Station station;
@@ -30,15 +31,16 @@ public class StationItinerary implements Serializable {
 	}
 
 	public StationItinerary(entities.StationItineraryId stationItineraryId,
-			Integer position, Double duration, Station station,
-			Itinerary itinerary) {
+			Integer position, Integer duration, Station station,
+			Itinerary itinerary, Integer distance) {
 		super();
 		this.StationItineraryId = new StationItineraryId(
 				itinerary.getItineraryId(), station.getStationId());
 		this.position = position;
-		this.duration = duration;
+		this.setDuration(duration);
 		this.station = station;
 		this.itinerary = itinerary;
+		this.distance=distance;
 	}
 
 	@EmbeddedId
@@ -58,13 +60,7 @@ public class StationItinerary implements Serializable {
 		this.position = position;
 	}
 
-	public Double getDuration() {
-		return duration;
-	}
 
-	public void setDuration(Double duration) {
-		this.duration = duration;
-	}
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "stationId", referencedColumnName = "stationId",insertable = false, updatable = false)
@@ -84,6 +80,22 @@ public class StationItinerary implements Serializable {
 
 	public void setItinerary(Itinerary itinerary) {
 		this.itinerary = itinerary;
+	}
+
+	public Integer getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Integer distance) {
+		this.distance = distance;
+	}
+
+	public Integer getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
 	}
 
 	
