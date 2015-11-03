@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -21,6 +23,7 @@ public class Station implements Serializable {
 	private List<StationItinerary> stationItineraries;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getStationId() {
 		return stationId;
 	}
@@ -44,6 +47,11 @@ public class Station implements Serializable {
 
 	public void setStationItineraries(List<StationItinerary> stationItineraries) {
 		this.stationItineraries = stationItineraries;
+	}
+
+	@Override
+	public String toString() {
+		return "Station [stationId=" + stationId + ", name=" + name + "]";
 	}
 
 }
