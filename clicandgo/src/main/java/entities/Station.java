@@ -18,7 +18,7 @@ public class Station implements Serializable {
 	private String name;
 	private static final long serialVersionUID = 1L;
 
-	private List<StationItinerary> stationItineraries;
+	private List<StationLine> stationLines;
 
 	@Id
 	public Integer getStationId() {
@@ -38,12 +38,12 @@ public class Station implements Serializable {
 	}
 
 	@OneToMany(mappedBy = "station")
-	public List<StationItinerary> getStationItineraries() {
-		return stationItineraries;
+	public List<StationLine> getStationItineraries() {
+		return stationLines;
 	}
 
-	public void setStationItineraries(List<StationItinerary> stationItineraries) {
-		this.stationItineraries = stationItineraries;
+	public void setStationItineraries(List<StationLine> stationLines) {
+		this.stationLines = stationLines;
 	}
 
 }

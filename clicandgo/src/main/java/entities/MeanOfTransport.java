@@ -3,6 +3,8 @@ package entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -19,7 +21,8 @@ public class MeanOfTransport implements Serializable {
 	private Integer capacity;
 	private static final long serialVersionUID = 1L;
 	
-	private Itinerary itinerary;
+	private Line line;
+	private List<Ticket> tickets;
 
 	public MeanOfTransport() {
 		super();
@@ -47,20 +50,29 @@ public class MeanOfTransport implements Serializable {
 		this.capacity = capacity;
 	}
 	@ManyToOne
-	public Itinerary getItinerary() {
-		return itinerary;
+	public Line getLine() {
+		return line;
 	}
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
+	public void setLine(Line line) {
+		this.line = line;
 	}
 	@Override
 	public String toString() {
 		return "MeanOfTransport [registrationNumber=" + registrationNumber
 				+ ", nbOfWagons=" + nbOfWagons + ", capacity=" + capacity
-				+ ", itinerary=" + itinerary + "]";
+				+ ", line=" + line + "]";
 	}
 	
+	@OneToMany(mappedBy = "meanOfTransport")
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
 	
+	 
+
 	
    
 }

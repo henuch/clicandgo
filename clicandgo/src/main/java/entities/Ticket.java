@@ -19,7 +19,8 @@ public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private User user;
-	private Itinerary itinerary;
+	private MeanOfTransport meanOfTransport;
+	
 
 	public Ticket() {
 		super();
@@ -58,14 +59,16 @@ public class Ticket implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 	@ManyToOne
-	public Itinerary getItinerary() {
-		return itinerary;
+	public MeanOfTransport getMeanOfTransport() {
+		return meanOfTransport;
 	}
 
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
+	public void setMeanOfTransport(MeanOfTransport meanOfTransport) {
+		this.meanOfTransport = meanOfTransport;
 	}
+
+	
+
 
 }
