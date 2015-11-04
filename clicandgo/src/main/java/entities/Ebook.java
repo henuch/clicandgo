@@ -15,6 +15,7 @@ public class Ebook implements Serializable {
 
 	
 	private Integer id;
+	private String title;
 	private String author;
 	private String description;
 	private String category;
@@ -28,8 +29,9 @@ public class Ebook implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Ebook [author=" + author + ", description=" + description
-				+ ", category=" + category + ", type=" + type + "]";
+		return "Ebook [title=" + title + ", author=" + author
+				+ ", description=" + description + ", category=" + category
+				+ ", type=" + type + ", nbOfWords=" + nbOfWords + "]";
 	}
 
 	@Id    
@@ -75,6 +77,14 @@ public class Ebook implements Serializable {
 
 	public void setNbOfWords(int nbOfWords) {
 		this.nbOfWords = nbOfWords;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
    
 }

@@ -3,7 +3,7 @@ package BusinessDelegator;
 import java.util.List;
 
 import entities.Ebook;
-import entities.StationItinerary;
+import entities.StationLine;
 import entities.Traveler;
 import ServiceLocator.ServiceLocator;
 import services.interfaces.ReadingManagementRemote;
@@ -21,7 +21,11 @@ public class ReadingManagementDelegate {
 		return getProxy().addEbook(ebook);
 	}
 	
-	public static List<Ebook> suggestEbooks(StationItinerary stationItinerary, Traveler traveler ){
-		return getProxy().suggestEbooks(stationItinerary, traveler);
+	public static List<Ebook> doSuggestEbooks(StationLine stationLine, Traveler traveler ){
+		return getProxy().suggestEbooks(stationLine, traveler);
+	}
+	
+	public static List<Ebook> doLookUpEbook(String search){
+		return getProxy().lookUpEbook(search);
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import entities.Ebook;
-import entities.StationItinerary;
+import entities.StationLine;
 import entities.Traveler;
 
 
@@ -14,5 +14,11 @@ public interface ReadingManagementRemote {
 
 	Boolean addEbook(Ebook ebook);
 	
-	List<Ebook> suggestEbooks(StationItinerary stationItinerary, Traveler traveler );
+	List<Ebook> viewLibrary();
+	
+	List<Ebook> viewLibraryByCategory(String category);
+	
+	List<Ebook> lookUpEbook(String search);
+	
+	List<Ebook> suggestEbooks(StationLine stationLine, Traveler traveler );
 }

@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import entities.Ebook;
-import entities.StationItinerary;
+import entities.StationLine;
 import entities.Traveler;
 import services.interfaces.ReadingManagementLocal;
 import services.interfaces.ReadingManagementRemote;
@@ -37,8 +37,10 @@ public class ReadingManagement implements ReadingManagementRemote, ReadingManage
 		return b;
 	}
 
+	//je recupere l'utilisateur connecté et son trajet actuel
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Ebook> suggestEbooks(StationItinerary stationItinerary,
+	public List<Ebook> suggestEbooks(StationLine stationLine,
 			Traveler traveler) {
 		try {
 			//Traveler travelerFound=entityManager.find(Traveler.class, traveler.getUserId());
@@ -47,9 +49,9 @@ public class ReadingManagement implements ReadingManagementRemote, ReadingManage
 			//entityManager.merge(travelerFound);
 			//entityManager.merge(stationItineraryFound);
 			Integer MaxNbOfWords = 22 ; //MaxNbOfWords = duration/ReaderSpeed
-			String jpql = "select m from Ebook m where m.nbOfWords BETWEEN 10 AND 40";
+			String jpql = "select m from Ebook m where m.nbOfWords <= ?1";
 			Query query = entityManager.createQuery(jpql);
-			//query.setParameter("param", MaxNbOfWords);
+			query.setParameter(1, MaxNbOfWords);
 			return query.getResultList();
 			
 		} catch (Exception e) {
@@ -59,5 +61,47 @@ public class ReadingManagement implements ReadingManagementRemote, ReadingManage
 		
 		
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ebook> viewLibrary() {
+		try {
+			String jpql = "select m from Ebook m";
+			Query query = entityManager.createQuery(jpql);
+			return query.getResultList();
+			
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ebook> viewLibraryByCategory(String category) {
+		try {
+			String jpql = "select m from Ebook m where m.category:=param";
+			Query query = entityManager.createQuery(jpql);
+			query.setParameter("param", category);
+			return query.getResultList();
+			
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ebook> lookUpEbook(String search) {
+		try {
+			String jpql = "select m from Ebook m where m.author LIKE '%:param%'";
+			Query query = entityManager.createQuery(jpql);
+			query.setParameter("param", search);
+			return query.getResultList();
+			
+		} catch (Exception e) {
+			return null;
+		}
+		}
 
 }

@@ -10,46 +10,46 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Entity implementation class for Entity: StationItinerary
+ * Entity implementation class for Entity: StationLine
  *
  */
 @Entity
-@Table(name = "station_itinerary")
-public class StationItinerary implements Serializable {
+@Table(name = "station_line")
+public class StationLine implements Serializable {
 
-	private StationItineraryId StationItineraryId;
+	private StationLineId StationLineId;
 	private Integer position;
 	private Integer duration;
 	private Integer distance;
 	private static final long serialVersionUID = 1L;
 
 	private Station station;
-	private Itinerary itinerary;
+	private Line line;
 
-	public StationItinerary() {
+	public StationLine() {
 		super();
 	}
 
-	public StationItinerary(entities.StationItineraryId stationItineraryId,
+	public StationLine(entities.StationLineId stationLineId,
 			Integer position, Integer duration, Station station,
-			Itinerary itinerary, Integer distance) {
+			Line line, Integer distance) {
 		super();
-		this.StationItineraryId = new StationItineraryId(
-				itinerary.getItineraryId(), station.getStationId());
+		this.StationLineId = new StationLineId(
+				line.getLineId(), station.getStationId());
 		this.position = position;
 		this.setDuration(duration);
 		this.station = station;
-		this.itinerary = itinerary;
+		this.line = line;
 		this.distance=distance;
 	}
 
 	@EmbeddedId
-	public StationItineraryId getStationItineraryId() {
-		return StationItineraryId;
+	public StationLineId getStationLineId() {
+		return StationLineId;
 	}
 
-	public void setStationItineraryId(StationItineraryId stationItineraryId) {
-		StationItineraryId = stationItineraryId;
+	public void setStationLineId(StationLineId stationLineId) {
+		StationLineId = stationLineId;
 	}
 
 	public Integer getPosition() {
@@ -73,13 +73,13 @@ public class StationItinerary implements Serializable {
 	}
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "itineraryId", referencedColumnName = "itineraryId", insertable = false, updatable = false)
-	public Itinerary getItinerary() {
-		return itinerary;
+	@JoinColumn(name = "lineId", referencedColumnName = "lineId", insertable = false, updatable = false)
+	public Line getLine() {
+		return line;
 	}
 
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
+	public void setLine(Line line) {
+		this.line = line;
 	}
 
 	public Integer getDistance() {

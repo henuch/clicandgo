@@ -21,6 +21,7 @@ public class User implements Serializable {
 	private String surname;
 	private String email;
 	private String password;
+	private Integer nbOfWordsPerMinute;
 
 	private static final long serialVersionUID = 1L;
 
@@ -89,6 +90,14 @@ public class User implements Serializable {
 
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
+	}
+
+	public Integer getNbOfWordsPerMinute() {
+		return nbOfWordsPerMinute;
+	}
+
+	public void setNbOfWordsPerMinute(Integer nbOfWordsPerMinute) {
+		this.nbOfWordsPerMinute = nbOfWordsPerMinute;
 	}
 
 }
